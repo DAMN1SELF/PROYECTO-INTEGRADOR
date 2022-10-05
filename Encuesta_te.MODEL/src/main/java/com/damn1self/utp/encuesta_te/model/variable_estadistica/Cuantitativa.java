@@ -8,6 +8,6 @@ package com.damn1self.utp.encuesta_te.model.variable_estadistica;
  *
  * @author DAMN
  */
-public abstract class Cuantitativa implements VariableEstadistica {
+public abstract class Cuantitativa extends VariableEstadistica {
     
 }
