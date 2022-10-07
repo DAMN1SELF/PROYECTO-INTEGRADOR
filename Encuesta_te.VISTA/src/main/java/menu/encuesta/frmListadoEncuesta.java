@@ -36,7 +36,7 @@ public class frmListadoEncuesta extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         btnModificar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lbl.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         lbl.setText("LISTADO DE ENCUESTA");

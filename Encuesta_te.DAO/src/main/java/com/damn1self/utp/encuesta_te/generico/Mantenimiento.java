@@ -14,8 +14,9 @@ public interface Mantenimiento<T> {
     List<T> listar() throws SQLException;
     ArrayList<T> listarArreglo() throws SQLException;
     T listarPorCodigo(int codigo) throws SQLException;
-    int crear(T modelo) throws SQLException;
-    int modificar(T modelo) throws SQLException;
-    int eliminarPorCodigo(int codigo) throws SQLException;
-    int desactivarPorCodigo(int codigo)throws SQLException;
+    boolean crear(T modelo) throws SQLException;
+    boolean modificar(T modelo) throws SQLException;
+    boolean eliminarPorCodigo(int codigo) throws SQLException;
+    boolean desactivarPorCodigo(int codigo)throws SQLException;
+    int devolverCorrelativo()throws SQLException;
 }

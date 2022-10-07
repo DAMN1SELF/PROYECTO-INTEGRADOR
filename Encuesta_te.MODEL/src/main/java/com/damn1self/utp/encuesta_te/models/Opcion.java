@@ -11,4 +11,11 @@ package com.damn1self.utp.encuesta_te.models;
 public class Opcion {
     
     
+    private String codigo;
+    private int orden;
+    private int numeroOpciones;
+    private int numeroOpcionesValida;
+    private double maximoValor;
+    private double minValor;
+    
 }

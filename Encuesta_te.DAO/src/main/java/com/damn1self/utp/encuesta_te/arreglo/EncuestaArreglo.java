@@ -4,12 +4,14 @@
  */
 package com.damn1self.utp.encuesta_te.arreglo;
 
-import com.damn1self.utp.encuesta_te.models.Pregunta;
+import com.damn1self.utp.encuesta_te.models.Encuesta;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,20 +20,21 @@ import java.util.Date;
  *
  * @author DAMN
  */
-public class PreguntaArreglo {
+public class EncuestaArreglo {
+
+
+  
 
     DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
-    public ArrayList<Pregunta> lista;
+    public ArrayList<Encuesta> lista;
 
-    public PreguntaArreglo(ArrayList<Pregunta> lista) {
-        this.lista = lista;
+    public EncuestaArreglo() {
+        lista = new ArrayList<Encuesta>();
         cargarArchivoPlano();
     }
-
-
-
-    public void adicionar(Pregunta x) {
+    
+    public void adicionar(Encuesta x) {
         lista.add(x);
         grabarArchivoPlano();
     }
@@ -40,11 +43,11 @@ public class PreguntaArreglo {
         return lista.size();
     }
 
-    public Pregunta obtener(int i) {
+    public Encuesta obtener(int i) {
         return lista.get(i);
     }
 
-    public Pregunta buscar(int correlativo) {
+    public Encuesta buscar(int correlativo) {
         for (int i = 0; i < tamanio(); i++) {
             if (obtener(i).getCorrelativo() == correlativo) {
                 return obtener(i);
@@ -53,17 +56,16 @@ public class PreguntaArreglo {
         return null;
     }
 
-    public void eliminar(Pregunta x) {
-        lista.remove(x);
+    public void eliminar(Encuesta x) {
+       lista.remove(x);
         grabarArchivoPlano();
     }
-
+    
     public void eliminar(int correlativo) {
-        lista.remove(obtener(correlativo));
+       lista.remove(obtener(correlativo));
         grabarArchivoPlano();
     }
-
-    public void eliminarTodos() {
+     public void eliminarTodos() {
         lista.removeAll(lista);
         grabarArchivoPlano();
     }
@@ -71,12 +73,12 @@ public class PreguntaArreglo {
     public void actualizarArchivo() {
         grabarArchivoPlano();
     }
-
+  
     private void grabarArchivoPlano() {
         try {
             PrintWriter pw;
             String linea;
-            Pregunta x;
+            Encuesta x;
             pw = new PrintWriter(new FileWriter("encuestas.txt"));
             for (int i = 0; i < tamanio(); i++) {
                 x = obtener(i);
@@ -91,7 +93,7 @@ public class PreguntaArreglo {
                 pw.println(linea);
             }
             pw.close();
-        } catch (Exception e) {
+        } catch (IOException e) {
         }
     }
 
@@ -114,18 +116,21 @@ public class PreguntaArreglo {
                 v6 = s[5].trim();
                 v7 = s[6].trim();
                 v8 = formatter.parse(s[7].trim());
-                adicionar(new Pregunta(v1, v2, v3, v4, v5, v6, v7, v8));
+                adicionar(new Encuesta(v1, v2, v3, v4, v5, v6, v7, v8));
             }
             br.close();
-        } catch (Exception e) {
+        } catch (IOException | NumberFormatException | ParseException e) {
         }
     }
+
     public int codigoCorrelativo() {
-        if (tamanio() == 1000) {
-            return 1;
+        if (tamanio() == 0) {
+            return 1000;
         } else {
             return obtener(tamanio() - 1).getCorrelativo() + 1;
         }
     }
+
+    
 
 }

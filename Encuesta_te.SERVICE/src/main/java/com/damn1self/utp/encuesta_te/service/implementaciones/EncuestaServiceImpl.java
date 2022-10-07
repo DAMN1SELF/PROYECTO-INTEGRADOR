@@ -1,12 +1,11 @@
 package com.damn1self.utp.encuesta_te.service.implementaciones;
 
-import com.damn1self.utp.encuesta_te.dao.PreguntaDAO;
-import com.damn1self.utp.encuesta_te.dao.implementaciones.PreguntaDAOImpl;
-import com.damn1self.utp.encuesta_te.models.Pregunta;
+import com.damn1self.utp.encuesta_te.dao.EncuestaDAO;
+import com.damn1self.utp.encuesta_te.models.Encuesta;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.damn1self.utp.encuesta_te.service.PreguntaService;
+import com.damn1self.utp.encuesta_te.service.EncuestaService;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -17,37 +16,36 @@ import com.damn1self.utp.encuesta_te.service.PreguntaService;
  *
  * @author DAMN
  */
-public class PreguntaServiceImpl implements PreguntaService {
+public class EncuestaServiceImpl implements EncuestaService {
 
-   private final PreguntaDAO dao;
+    private final EncuestaDAO dao;
     
-    public PreguntaServiceImpl(PreguntaDAO dao){
+    public EncuestaServiceImpl(EncuestaDAO dao){
         this.dao=dao;
     }
-
     
     @Override
-    public List<Pregunta> listar() throws SQLException {
+    public List<Encuesta> listar() throws SQLException {
          return this.dao.listar();  
     }
 
     @Override
-    public ArrayList<Pregunta> listarArreglo() throws SQLException {
+    public ArrayList<Encuesta> listarArreglo() throws SQLException {
         return this.dao.listarArreglo();
     }
 
     @Override
-    public Pregunta listarPorCodigo(int codigo) throws SQLException {
+    public Encuesta listarPorCodigo(int codigo) throws SQLException {
         return this.dao.listarPorCodigo(codigo);
     }
 
     @Override
-    public boolean crear(Pregunta modelo) throws SQLException {
+    public boolean crear(Encuesta modelo) throws SQLException {
         return this.dao.crear(modelo);
     }
 
     @Override
-    public boolean modificar(Pregunta modelo) throws SQLException {
+    public boolean modificar(Encuesta modelo) throws SQLException {
        return this.dao.modificar(modelo);   
     }
 
@@ -58,7 +56,7 @@ public class PreguntaServiceImpl implements PreguntaService {
 
     @Override
     public boolean desactivarPorCodigo(int codigo) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return this.dao.desactivarPorCodigo(codigo);
     }
 
     @Override
@@ -66,7 +64,4 @@ public class PreguntaServiceImpl implements PreguntaService {
          return this.dao.devolverCorrelativo();
     }
 
-  
-
-    
 }

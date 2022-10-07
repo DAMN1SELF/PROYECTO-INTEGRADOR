@@ -14,16 +14,47 @@ import java.util.Date;
  */
 public class Encuesta {
 
-   
+
+
+
     private String codigo; //Generar_Guid
+    private int correlativo;
     private String titulo;
+    private String encargado;
     private String descripcion;
+    private String concepto;
     private String unidadAnalisis;
     private Date fechaRegistro;
-    private ArrayList<Pregunta> listaPreguntas;
+    private ArrayList<Encuesta> listaPreguntas;
+
+    public Encuesta(String codigo, int correlativo, String titulo, String encargado, String descripcion, String concepto, String unidadAnalisis, Date fechaRegistro ) {
+        this.codigo = codigo;
+        this.correlativo = correlativo;
+        this.titulo = titulo;
+        this.encargado = encargado;
+        this.descripcion = descripcion;
+        this.concepto = concepto;
+        this.unidadAnalisis = unidadAnalisis;
+        this.fechaRegistro = fechaRegistro;
+    }
     
-    
-    
+    public Encuesta(String codigo, int correlativo, String titulo, String encargado, String descripcion, String concepto, String unidadAnalisis, Date fechaRegistro, ArrayList<Encuesta> listaPreguntas) {
+        this(codigo,correlativo,titulo,encargado,descripcion,concepto,unidadAnalisis,fechaRegistro);
+        this.listaPreguntas = listaPreguntas;
+        
+    }
+    public Encuesta(String codigo, int correlativo, String titulo, String encargado, String descripcion, String concepto, String unidadAnalisis) {
+        this.codigo = codigo;
+        this.correlativo = correlativo;
+        this.titulo = titulo;
+        this.encargado = encargado;
+        this.descripcion = descripcion;
+        this.concepto = concepto;
+        this.unidadAnalisis = unidadAnalisis;
+        
+    }
+  
+
     /**
      * @return the codigo
      */
@@ -97,16 +128,56 @@ public class Encuesta {
     /**
      * @return the listaPreguntas
      */
-    public ArrayList<Pregunta> getListaPreguntas() {
+    public ArrayList<Encuesta> getListaPreguntas() {
         return listaPreguntas;
     }
 
     /**
      * @param listaPreguntas the listaPreguntas to set
      */
-    public void setListaPreguntas(ArrayList<Pregunta> listaPreguntas) {
+    public void setListaPreguntas(ArrayList<Encuesta> listaPreguntas) {
         this.listaPreguntas = listaPreguntas;
     }    
     
+    /**
+     * @return the concepto
+     */
+    public String getConcepto() {
+        return concepto;
+    }
 
+    /**
+     * @param concepto the concepto to set
+     */
+    public void setConcepto(String concepto) {
+        this.concepto = concepto;
+    }
+
+    /**
+     * @return the correlativo
+     */
+    public int getCorrelativo() {
+        return correlativo;
+    }
+
+    /**
+     * @param correlativo the correlativo to set
+     */
+    public void setCorrelativo(int correlativo) {
+        this.correlativo = correlativo;
+    }
+    /**
+     * @return the encargado
+     */
+    public String getEncargado() {
+        return encargado;
+    }
+
+    /**
+     * @param encargado the encargado to set
+     */
+    public void setEncargado(String encargado) {
+        this.encargado = encargado;
+    }
+   
 }

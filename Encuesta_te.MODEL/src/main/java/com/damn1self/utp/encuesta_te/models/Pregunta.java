@@ -1,11 +1,12 @@
+package com.damn1self.utp.encuesta_te.models;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.damn1self.utp.encuesta_te.models;
-
-import com.damn1self.utp.encuesta_te.models.Respuesta;
-import java.util.ArrayList;
 
 /**
  *
@@ -13,25 +14,40 @@ import java.util.ArrayList;
  */
 public class Pregunta {
 
-    
-    private String codigo;
-    private String pregunta;
-    private String estado;
-    
-    public Pregunta(String codigo,String pregunta,String estado){
-        this.codigo=codigo;
-        this.pregunta=pregunta;
-        this.estado=estado;
+    private String codigo; //Generar_Guid
+    private int correlativo;
+    private String titulo;
+    private String encargado;
+    private String descripcion;
+    private String concepto;
+    private String unidadAnalisis;
+    private Date fechaRegistro;
+    private ArrayList<Pregunta> listaPreguntas;
+
+    public Pregunta(String codigo, int correlativo, String titulo, String encargado, String descripcion, String concepto, String unidadAnalisis, Date fechaRegistro ) {
+        this.codigo = codigo;
+        this.correlativo = correlativo;
+        this.titulo = titulo;
+        this.encargado = encargado;
+        this.descripcion = descripcion;
+        this.concepto = concepto;
+        this.unidadAnalisis = unidadAnalisis;
+        this.fechaRegistro = fechaRegistro;
     }
     
-    private ArrayList<Respuesta> listaRespuesta;
+    public Pregunta(String codigo, int correlativo, String titulo, String encargado, String descripcion, String concepto, String unidadAnalisis, Date fechaRegistro, ArrayList<Pregunta> listaPreguntas) {
+        this(codigo,correlativo,titulo,encargado,descripcion,concepto,unidadAnalisis,fechaRegistro);
+        this.listaPreguntas = listaPreguntas;
+        
+    }
+    
     /**
      * @return the codigo
      */
     public String getCodigo() {
         return codigo;
     }
-
+    
     /**
      * @param codigo the codigo to set
      */
@@ -40,47 +56,114 @@ public class Pregunta {
     }
 
     /**
-     * @return the listaRespuesta
+     * @return the titulo
      */
-    public ArrayList<Respuesta> getListaRespuesta() {
-        return listaRespuesta;
+    public String getTitulo() {
+        return titulo;
     }
 
     /**
-     * @param listaRespuesta the listaRespuesta to set
+     * @param titulo the titulo to set
      */
-    public void setListaRespuesta(ArrayList<Respuesta> listaRespuesta) {
-        this.listaRespuesta = listaRespuesta;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
     /**
-     * @return the pregunta
+     * @return the descripcion
      */
-    public String getPregunta() {
-        return pregunta;
+    public String getDescripcion() {
+        return descripcion;
     }
 
     /**
-     * @param pregunta the pregunta to set
+     * @param descripcion the descripcion to set
      */
-    public void setPregunta(String pregunta) {
-        this.pregunta = pregunta;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     /**
-     * @return the estado
+     * @return the unidadAnalisis
      */
-    public String getEstado() {
-        return estado;
+    public String getUnidadAnalisis() {
+        return unidadAnalisis;
     }
 
     /**
-     * @param estado the estado to set
+     * @param unidadAnalisis the unidadAnalisis to set
      */
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setUnidadAnalisis(String unidadAnalisis) {
+        this.unidadAnalisis = unidadAnalisis;
     }
+
+    /**
+     * @return the fechaRegistro
+     */
+    public Date getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    /**
+     * @param fechaRegistro the fechaRegistro to set
+     */
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    /**
+     * @return the listaPreguntas
+     */
+    public ArrayList<Pregunta> getListaPreguntas() {
+        return listaPreguntas;
+    }
+
+    /**
+     * @param listaPreguntas the listaPreguntas to set
+     */
+    public void setListaPreguntas(ArrayList<Pregunta> listaPreguntas) {
+        this.listaPreguntas = listaPreguntas;
+    }    
     
+    /**
+     * @return the concepto
+     */
+    public String getConcepto() {
+        return concepto;
+    }
 
-    
+    /**
+     * @param concepto the concepto to set
+     */
+    public void setConcepto(String concepto) {
+        this.concepto = concepto;
+    }
+
+    /**
+     * @return the correlativo
+     */
+    public int getCorrelativo() {
+        return correlativo;
+    }
+
+    /**
+     * @param correlativo the correlativo to set
+     */
+    public void setCorrelativo(int correlativo) {
+        this.correlativo = correlativo;
+    }
+    /**
+     * @return the encargado
+     */
+    public String getEncargado() {
+        return encargado;
+    }
+
+    /**
+     * @param encargado the encargado to set
+     */
+    public void setEncargado(String encargado) {
+        this.encargado = encargado;
+    }
+   
 }
