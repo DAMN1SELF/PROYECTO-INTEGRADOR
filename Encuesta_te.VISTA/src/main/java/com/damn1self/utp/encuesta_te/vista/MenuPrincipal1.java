@@ -88,15 +88,12 @@ public class MenuPrincipal1 extends javax.swing.JFrame {
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\arturo medina\\Desktop\\excel.jpg")); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 140, 130));
-
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\arturo medina\\Desktop\\NOTEPAD.jpg")); // NOI18N
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 140, 130));
 
         jLabel6.setText("NOMBRE Y APELLIDO");

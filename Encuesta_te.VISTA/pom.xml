@@ -7,11 +7,6 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>com.damn1self.utp.encuesta_te.service</groupId>
-            <artifactId>Encuesta_te.SERVICE</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE126</version>
@@ -20,6 +15,11 @@
             <groupId>com.luuuis</groupId>
             <artifactId>jcalendar-tz</artifactId>
             <version>1.3.3-4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.damn1self.utp.encuesta_te.controlador</groupId>
+            <artifactId>Encuesta_te.CONTROLADOR</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
     <properties>

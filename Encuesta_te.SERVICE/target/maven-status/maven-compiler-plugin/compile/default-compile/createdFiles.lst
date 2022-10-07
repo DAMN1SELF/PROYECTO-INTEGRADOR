@@ -1,1 +1,2 @@
-com\damn1self\utp\encuesta_te\service\Encuesta_teSERVICE.class
+com\damn1self\utp\encuesta_te\service\PreguntaService.class
+com\damn1self\utp\encuesta_te\service\implementaciones\PreguntaServiceImpl.class
