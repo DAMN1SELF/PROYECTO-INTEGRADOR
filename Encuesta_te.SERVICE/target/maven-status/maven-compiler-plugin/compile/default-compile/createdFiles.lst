@@ -1,4 +1,8 @@
-com\damn1self\utp\encuesta_te\service\implementaciones\EncuestaServiceImpl.class
 com\damn1self\utp\encuesta_te\service\EncuestaService.class
 com\damn1self\utp\encuesta_te\service\implementaciones\PreguntaServiceImpl.class
+com\damn1self\utp\encuesta_te\service\implementaciones\OpcionServiceImpl.class
+com\damn1self\utp\encuesta_te\service\implementaciones\EncuestaServiceImpl.class
+com\damn1self\utp\encuesta_te\service\OpcionService.class
+com\damn1self\utp\encuesta_te\service\implementaciones\RespuestaServiceImpl.class
 com\damn1self\utp\encuesta_te\service\PreguntaService.class
+com\damn1self\utp\encuesta_te\service\RespuestaService.class

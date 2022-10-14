@@ -3,34 +3,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.damn1self.utp.encuesta_te.arreglo;
-import com.damn1self.utp.encuesta_te.models.Pregunta;
+import com.damn1self.utp.encuesta_te.models.Respuesta;
+import com.damn1self.utp.encuesta_te.utils.EnumEscala;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
  *
  * @author DAMN
  */
-public class PreguntaArreglo {
+public class RespuestaArreglo {
 
-    DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    
+    public ArrayList<Respuesta> lista;
+    private final String codigoInterno;
 
-    public ArrayList<Pregunta> lista;
-
-    public PreguntaArreglo(ArrayList<Pregunta> lista) throws Exception {
+    public RespuestaArreglo(ArrayList<Respuesta> lista,String code) throws Exception {
         this.lista = lista;
+        this.codigoInterno=code;
         cargarArchivoPlano();
     }
 
 
 
-    public void adicionar(Pregunta x) {
+    public void adicionar(Respuesta x) {
         lista.add(x);
         grabarArchivoPlano();
     }
@@ -39,11 +39,11 @@ public class PreguntaArreglo {
         return lista.size();
     }
 
-    public Pregunta obtener(int i) {
+    public Respuesta obtener(int i) {
         return lista.get(i);
     }
 
-    public Pregunta buscar(int correlativo) {
+    public Respuesta buscar(int correlativo) {
         for (int i = 0; i < tamanio(); i++) {
             if (obtener(i).getCorrelativo() == correlativo) {
                 return obtener(i);
@@ -52,16 +52,16 @@ public class PreguntaArreglo {
         return null;
     }
     
-    public Pregunta buscar(String codigo) {
+    public Respuesta buscar(String codigo) {
         for (int i = 0; i < tamanio(); i++) {
-            if (obtener(i).getCodigoEncuesta().equals(codigo)) {
+            if (obtener(i).getCodigoPregunta().equals(codigo)) {
                 return obtener(i);
             }
         }
         return null;
     }
 
-    public void eliminar(Pregunta x) {
+    public void eliminar(Respuesta x) {
         lista.remove(x);
         grabarArchivoPlano();
     }
@@ -71,28 +71,26 @@ public class PreguntaArreglo {
         grabarArchivoPlano();
     }
 
-    public void eliminarTodos() {
+    public void eliminarTodos( ) {
         lista.removeAll(lista);
         grabarArchivoPlano();
     }
 
-    public void actualizarArchivo() {
+    public void actualizarArchivo(  ) {
         grabarArchivoPlano();
     }
 
-    private void grabarArchivoPlano() {
+    private void grabarArchivoPlano( ) {
         try {
             PrintWriter pw;
             String linea;
-            Pregunta x;
-            pw = new PrintWriter(new FileWriter("preguntas.txt"));
+            Respuesta x;
+            pw = new PrintWriter(new FileWriter( codigoInterno+"_respuesta.txt"));
             for (int i = 0; i < tamanio(); i++) {
                 x = obtener(i);
-                linea = x.getCodigoEncuesta()+ ";"
-                        + x.getCorrelativo() + ";"
-                        + x.getPregunta()+ ";"
-                        + x.getTipoPregunta()+ ";"
-                        + x.getDetallePregunta()+ ";";
+                linea = x.getCodigoPregunta()+ ";"
+                        + x.getCorrelativo()+ ";"
+                        + x.getRptaString()+ ";";
                 pw.println(linea);
             }
             pw.close();
@@ -100,39 +98,31 @@ public class PreguntaArreglo {
         }
     }
 
-    private void cargarArchivoPlano()throws Exception {
+    private void cargarArchivoPlano( )throws Exception {
         try {
             BufferedReader br;
             String linea;
             String[] s;
-            String v1, v3, v5;
-            int v4;
+            String v1, v3;
             int v2;
-            br = new BufferedReader(new FileReader("preguntas.txt"));
+            br = new BufferedReader(new FileReader(codigoInterno+"_respuesta.txt"));
             while ((linea = br.readLine()) != null) {
                 s = linea.split(";");
                 v1 = s[0].trim();
                 v2 = Integer.parseInt(s[1].trim());
                 v3 = s[2].trim();
-                v4 = Integer.parseInt(s[3].trim());
-                v5 = s[4].trim();
-                adicionar(new Pregunta(v1, v2, v3, v4, v5));
+                adicionar(new Respuesta(v1, v2, v3));
             }
             br.close();
         } catch (IOException | NumberFormatException  e) {
         }
     }
-   public int codigoCorrelativo() {
-      /*  try {
-            if (tamanio() == 0) {
-                return 1000;
-            } else {
-                return obtener(tamanio() - 1).getCorrelativo() + 1;
-            }
-        } catch (Exception e) {
+    public int codigoCorrelativo() {
+        if (tamanio() == 10000) {
+            return 1;
+        } else {
+            return obtener(tamanio() - 1).getCorrelativo() + 1;
         }
-        return -1;
-*/
-     return tamanio();
-}
+    }
+
 }

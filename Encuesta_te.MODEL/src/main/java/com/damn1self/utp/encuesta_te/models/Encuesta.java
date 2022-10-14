@@ -25,7 +25,7 @@ public class Encuesta {
     private String concepto;
     private String unidadAnalisis;
     private Date fechaRegistro;
-    private ArrayList<Encuesta> listaPreguntas;
+    private ArrayList<Pregunta> listaPreguntas;
 
     public Encuesta(String codigo, int correlativo, String titulo, String encargado, String descripcion, String concepto, String unidadAnalisis, Date fechaRegistro ) {
         this.codigo = codigo;
@@ -38,7 +38,7 @@ public class Encuesta {
         this.fechaRegistro = fechaRegistro;
     }
     
-    public Encuesta(String codigo, int correlativo, String titulo, String encargado, String descripcion, String concepto, String unidadAnalisis, Date fechaRegistro, ArrayList<Encuesta> listaPreguntas) {
+    public Encuesta(String codigo, int correlativo, String titulo, String encargado, String descripcion, String concepto, String unidadAnalisis, Date fechaRegistro, ArrayList<Pregunta> listaPreguntas) {
         this(codigo,correlativo,titulo,encargado,descripcion,concepto,unidadAnalisis,fechaRegistro);
         this.listaPreguntas = listaPreguntas;
         
@@ -125,20 +125,7 @@ public class Encuesta {
         this.fechaRegistro = fechaRegistro;
     }
 
-    /**
-     * @return the listaPreguntas
-     */
-    public ArrayList<Encuesta> getListaPreguntas() {
-        return listaPreguntas;
-    }
 
-    /**
-     * @param listaPreguntas the listaPreguntas to set
-     */
-    public void setListaPreguntas(ArrayList<Encuesta> listaPreguntas) {
-        this.listaPreguntas = listaPreguntas;
-    }    
-    
     /**
      * @return the concepto
      */
@@ -178,6 +165,20 @@ public class Encuesta {
      */
     public void setEncargado(String encargado) {
         this.encargado = encargado;
+    }
+
+    /**
+     * @return the listaPreguntas
+     */
+    public ArrayList<Pregunta> getListaPreguntas() {
+        return listaPreguntas;
+    }
+
+    /**
+     * @param listaPreguntas the listaPreguntas to set
+     */
+    public void setListaPreguntas(ArrayList<Pregunta> listaPreguntas) {
+        this.listaPreguntas = listaPreguntas;
     }
    
 }

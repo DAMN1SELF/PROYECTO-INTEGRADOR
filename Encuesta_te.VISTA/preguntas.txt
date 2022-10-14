@@ -1,0 +1,16 @@
+2dffd6e6-238a-44b4-aca1-9a6123c2758b;0;3213;0;sin detalle;
+2dffd6e6-238a-44b4-aca1-9a6123c2758b;3;3213;0;sin detalle;
+2dffd6e6-238a-44b4-aca1-9a6123c2758b;4;3213;0;sin detalle;
+2dffd6e6-238a-44b4-aca1-9a6123c2758b;5;3213;0;sin detalle;
+2dffd6e6-238a-44b4-aca1-9a6123c2758b;6;3213;0;sin detalle;
+64c55cee-7464-4d26-ba22-2c35b7e88759;5;asd;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;6;xdd;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;7;xdd;2;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;8;213;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;9;asd;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;10;213;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;11;213;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;12;213;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;13;213;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;14;213;0;sin detalle;
+68ee3972-36fb-4216-90b6-a1098cd979df;15;213;0;sin detalle;

@@ -2,20 +2,13 @@ package com.damn1self.utp.encuesta_te.service.implementaciones;
 
 import com.damn1self.utp.encuesta_te.dao.EncuestaDAO;
 import com.damn1self.utp.encuesta_te.models.Encuesta;
+import com.damn1self.utp.encuesta_te.models.Pregunta;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.damn1self.utp.encuesta_te.service.EncuestaService;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author DAMN
- */
 public class EncuestaServiceImpl implements EncuestaService {
 
     private final EncuestaDAO dao;
@@ -38,7 +31,15 @@ public class EncuestaServiceImpl implements EncuestaService {
     public Encuesta listarPorCodigo(int codigo) throws SQLException {
         return this.dao.listarPorCodigo(codigo);
     }
-
+      @Override
+    public Encuesta listarPorCodigo(String codigo) throws SQLException {
+        return this.dao.listarPorCodigo(codigo);
+    }
+     @Override
+    public Encuesta listarPorPosicion(int posicion) throws SQLException {
+       return this.dao.listarPorPosicion(posicion);
+    }
+    
     @Override
     public boolean crear(Encuesta modelo) throws SQLException {
         return this.dao.crear(modelo);
@@ -63,5 +64,19 @@ public class EncuestaServiceImpl implements EncuestaService {
     public int devolverCorrelativo() throws SQLException {
          return this.dao.devolverCorrelativo();
     }
+
+    @Override
+    public int devolverTamanio() throws SQLException {
+        return this.dao.devolverTamanio();
+    }
+
+    @Override
+    public boolean eliminar(Encuesta modelo) throws SQLException {
+        return this.dao.eliminar(modelo);
+    }
+
+ 
+ 
+  
 
 }

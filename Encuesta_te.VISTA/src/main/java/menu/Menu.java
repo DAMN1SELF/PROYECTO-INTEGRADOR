@@ -4,6 +4,9 @@
  */
 package menu;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import menu.encuesta.*;
 
 /**
@@ -91,7 +94,12 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        frmEncuesta formulario = new frmEncuesta();
+        frmEncuesta formulario = null;
+        try {
+            formulario = new frmEncuesta();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
         formulario.setLocationRelativeTo(this);
         formulario.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed

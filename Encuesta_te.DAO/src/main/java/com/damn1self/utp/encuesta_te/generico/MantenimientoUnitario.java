@@ -9,7 +9,7 @@ import java.util.List;
  * @author DAMN
  * @param <T>
  */
-public interface Mantenimiento<T> {
+public interface MantenimientoUnitario<T> {
 
     List<T> listar() throws SQLException;
 
@@ -33,7 +33,7 @@ public interface Mantenimiento<T> {
 
     boolean eliminarPorCodigo(int codigo) throws SQLException;
     
-    boolean eliminar(T modelo) throws SQLException;
+    boolean eliminar(T modelo,String code) throws SQLException;//OK
 
     boolean desactivarPorCodigo(int codigo) throws SQLException;
 

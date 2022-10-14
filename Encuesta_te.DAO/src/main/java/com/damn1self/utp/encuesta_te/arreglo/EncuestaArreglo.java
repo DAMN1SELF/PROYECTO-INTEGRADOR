@@ -1,9 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.damn1self.utp.encuesta_te.arreglo;
-
 import com.damn1self.utp.encuesta_te.models.Encuesta;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -11,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,29 +16,46 @@ import java.util.Date;
  */
 public class EncuestaArreglo {
 
-
-  
-
     DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
     public ArrayList<Encuesta> lista;
 
-    public EncuestaArreglo() {
-        lista = new ArrayList<Encuesta>();
-        cargarArchivoPlano();
+    public EncuestaArreglo(ArrayList<Encuesta> lista) {
+        try {
+            this.lista = lista;
+            cargarArchivoPlano();
+        } catch (Exception e) {
+        }
     }
-    
+
+ 
+    /**
+     * El metodo sirve para adicionar un objeto nuevo al arreglo
+     * @param x => representa objeto  Encuesta
+     */
     public void adicionar(Encuesta x) {
-        lista.add(x);
-        grabarArchivoPlano();
+        try {
+            this.lista.add(x);
+            grabarArchivoPlano();
+        } catch (Exception e) {
+        }
     }
 
     public int tamanio() {
-        return lista.size();
+        try {
+
+            return lista.size();
+        } catch (Exception e) {
+        }
+        return -1;
     }
 
     public Encuesta obtener(int i) {
-        return lista.get(i);
+        try {
+            return lista.get(i);
+        } catch (Exception e) {
+        }
+        return null;
     }
 
     public Encuesta buscar(int correlativo) {
@@ -56,24 +67,46 @@ public class EncuestaArreglo {
         return null;
     }
 
+    public Encuesta buscar(String codigo) {
+        for (int i = 0; i < tamanio(); i++) {
+            if (obtener(i).getCodigo().equals(codigo)) {
+                return obtener(i);
+            }
+        }
+        return null;
+    }
+
     public void eliminar(Encuesta x) {
-       lista.remove(x);
-        grabarArchivoPlano();
+        try {
+            lista.remove(x);
+            grabarArchivoPlano();
+        } catch (Exception e) {
+        }
     }
-    
+
     public void eliminar(int correlativo) {
-       lista.remove(obtener(correlativo));
-        grabarArchivoPlano();
+        try {
+            lista.remove(obtener(correlativo));
+            grabarArchivoPlano();
+        } catch (Exception e) {
+        }
     }
-     public void eliminarTodos() {
-        lista.removeAll(lista);
-        grabarArchivoPlano();
+
+    public void eliminarTodos() {
+        try {
+            lista.removeAll(lista);
+            grabarArchivoPlano();
+        } catch (Exception e) {
+        }
     }
 
     public void actualizarArchivo() {
-        grabarArchivoPlano();
+        try {
+            grabarArchivoPlano();
+        } catch (Exception e) {
+        }
     }
-  
+
     private void grabarArchivoPlano() {
         try {
             PrintWriter pw;
@@ -115,22 +148,23 @@ public class EncuestaArreglo {
                 v5 = s[4].trim();
                 v6 = s[5].trim();
                 v7 = s[6].trim();
-                v8 = formatter.parse(s[7].trim());
-                adicionar(new Encuesta(v1, v2, v3, v4, v5, v6, v7, v8));
+                adicionar(new Encuesta(v1, v2, v3, v4, v5, v6, v7));
             }
             br.close();
-        } catch (IOException | NumberFormatException | ParseException e) {
+        } catch (IOException | NumberFormatException  e) {
         }
     }
 
     public int codigoCorrelativo() {
-        if (tamanio() == 0) {
-            return 1000;
-        } else {
-            return obtener(tamanio() - 1).getCorrelativo() + 1;
+        try {
+            if (tamanio() == 0) {
+                return 1000;
+            } else {
+                return obtener(tamanio() - 1).getCorrelativo() + 1;
+            }
+        } catch (Exception e) {
         }
+        return -1;
     }
-
-    
 
 }

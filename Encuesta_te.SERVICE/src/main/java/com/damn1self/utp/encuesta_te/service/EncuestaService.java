@@ -13,5 +13,6 @@ import com.damn1self.utp.encuesta_te.models.Encuesta;
  * @author DAMN
  */
 public interface EncuestaService extends Mantenimiento<Encuesta> {
+
     
 }

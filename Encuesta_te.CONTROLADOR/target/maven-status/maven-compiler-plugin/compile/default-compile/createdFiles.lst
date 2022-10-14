@@ -1,1 +1,4 @@
+com\damn1self\utp\encuesta_te\controlador\EncuestaControlador.class
+com\damn1self\utp\encuesta_te\controlador\RespuestaControlador.class
+com\damn1self\utp\encuesta_te\controlador\OpcionControlador.class
 com\damn1self\utp\encuesta_te\controlador\PreguntaControlador.class

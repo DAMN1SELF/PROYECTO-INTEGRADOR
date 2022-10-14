@@ -1,8 +1,8 @@
 package com.damn1self.utp.encuesta_te.dao.implementaciones;
 
-import com.damn1self.utp.encuesta_te.arreglo.PreguntaArreglo;
+import com.damn1self.utp.encuesta_te.arreglo.RespuestaArreglo;
 import com.damn1self.utp.encuesta_te.dao.*;
-import com.damn1self.utp.encuesta_te.models.Pregunta;
+import com.damn1self.utp.encuesta_te.models.Respuesta;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,53 +11,56 @@ import com.damn1self.utp.encuesta_te.utils.*;
  *
  * @author DAMN
  */
-public class PreguntaDAOImpl implements PreguntaDAO{
+public class RespuestaDAOImpl implements RespuestaDAO{
 
   
 
 
-    private final ArrayList<Pregunta> lista;
+    private final ArrayList<Respuesta> lista;
     private EnumFormato formato;
-    private final PreguntaArreglo arreglo;
+    private final RespuestaArreglo arreglo;
     
-    public PreguntaDAOImpl(ArrayList<Pregunta>lst ) throws Exception{
+    public RespuestaDAOImpl(ArrayList<Respuesta>lst,String codigo) throws Exception{
       lista=lst; 
-      arreglo=new PreguntaArreglo(lista);
+      arreglo=new RespuestaArreglo(lista,codigo);
+    }
+
+  
+    
+ 
+    @Override
+    public List<Respuesta> listar() throws SQLException {
+       return (List<Respuesta>) arreglo;
     }
 
     @Override
-    public List<Pregunta> listar() throws SQLException {
-       return (List<Pregunta>) arreglo;
-    }
-
-    @Override
-    public ArrayList<Pregunta> listarArreglo() throws SQLException {
+    public ArrayList<Respuesta> listarArreglo() throws SQLException {
         return arreglo.lista;
     }
 
     @Override
-    public Pregunta listarPorCodigo(int codigo) throws SQLException {
+    public Respuesta listarPorCodigo(int codigo) throws SQLException {
        return arreglo.buscar(codigo);
     }
 
-       @Override
-    public Pregunta listarPorCodigo(String codigo) throws SQLException {
+    @Override
+    public Respuesta listarPorCodigo(String codigo) throws SQLException {
        return arreglo.buscar(codigo);
     }
     
     @Override
-    public Pregunta listarPorPosicion(int posicion) throws SQLException {
+    public Respuesta listarPorPosicion(int posicion) throws SQLException {
        return arreglo.obtener(posicion);
     }
 
     @Override
-    public boolean crear(Pregunta modelo) throws SQLException {
+    public boolean crear(Respuesta modelo) throws SQLException {
        arreglo.adicionar(modelo);
        return true;
     }
 
     @Override
-    public boolean modificar(Pregunta modelo) throws SQLException {
+    public boolean modificar(Respuesta modelo) throws SQLException {
          arreglo.actualizarArchivo();
          return true;
     }
@@ -85,7 +88,7 @@ public class PreguntaDAOImpl implements PreguntaDAO{
     }
 
     @Override
-    public boolean eliminar(Pregunta modelo) throws SQLException {
+    public boolean eliminar(Respuesta modelo) throws SQLException {
        arreglo.eliminar(modelo);
        return true;
     }

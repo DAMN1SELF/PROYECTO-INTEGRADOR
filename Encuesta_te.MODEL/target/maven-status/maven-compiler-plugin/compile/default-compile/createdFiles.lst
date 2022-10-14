@@ -1,3 +1,4 @@
+com\damn1self\utp\encuesta_te\utils\EnumEscala.class
 com\damn1self\utp\encuesta_te\utils\EnumTipoGrafo.class
 com\damn1self\utp\encuesta_te\models\Opcion.class
 com\damn1self\utp\encuesta_te\utils\EnumVariableEstadistica.class
